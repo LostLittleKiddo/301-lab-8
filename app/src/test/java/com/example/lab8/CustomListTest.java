@@ -48,5 +48,5 @@ public class CustomListTest {
         list.deleteCity();
         assertEquals(list.getCount(), listSize - 1);
     }
-    
+
 }
