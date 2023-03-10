@@ -17,8 +17,9 @@ public class CustomListTest {
      * create a mocklist for my citylist
      * @return
      */
-    public void MockCityList(){
+    public CustomList MockCityList(){
         list = new CustomList(null,new ArrayList<>());
+        return list;
     }
 
     /**
@@ -29,6 +30,7 @@ public class CustomListTest {
      */
     @Test
     public void addCityTest(){
+        list = MockCityList();
         int listSize = list.getCount();
         list.addCity(new City("Estevan", "SK"));
         assertEquals(list.getCount(),listSize + 1);
@@ -41,10 +43,18 @@ public class CustomListTest {
 
     @Test
     public void deleteCityTest() {
-        list.addCity(new City("Halifax", "NS"));
+        list = MockCityList();
+        list.addCity(new City("Estevan", "SK"));
         int listSize = list.getCount();
         list.deleteCity();
         assertEquals(list.getCount(), listSize - 1);
     }
-    
+    @Test
+    public void countCityTest() {
+        assertEquals(list.getCount(), 0);
+        list.addCity(new City("Halifax", "NS"));
+        assertEquals(list.getCount(), 1);
+        list.addCity(new City("Edmonton", "AB"));
+        assertEquals(list.getCount(), 2);
+    }
 }
