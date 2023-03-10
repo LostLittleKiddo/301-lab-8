@@ -45,18 +45,31 @@ public class CustomList extends ArrayAdapter<City> {
 
     }
 
-    public int getCount(){
+    /**
+     * get size of list
+     */
+    @Override
+    public int getCount() {
         return cities.size();
     }
 
-    public void addCity(City city){
+    /**
+     * add city to list
+     */
+    public void addCity(City city) {
         cities.add(city);
-        return;
     }
+
+    /**
+     * has city in list
+     */
     public Boolean hasCity() {
         return !cities.isEmpty();
     }
 
+    /**
+     * delete city in list
+     */
     public void deleteCity() {
         cities.remove(cities.size() - 1);
     }
